@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project name="whois" default="all" basedir=".">
+	<description>
+    Classpath project build script
+ 	</description>
+	
+	<property name="name" value="Classpath"/>
+	<property name="main" value="Classpath"/>
+	
+	<target	name="bin"
+			description="Compile source files">
+		<javac srcdir="${basedir}"/>
+	</target>
+	
+	<target	name="run" depends="bin"
+			description="Run the program">
+		<java classname="${main}" fork="true"/>
+	</target>
+	
+	<target	name="clean"
+			description="Clean generated files">
+		<delete>
+			<fileset dir="${basedir}">
+  				<include name="${name}.class"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="all" depends="clean,bin"/>
+</project>
